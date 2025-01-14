@@ -1,0 +1,148 @@
+/* CSS thuần cho giao diện */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e5e7eb; /* Nền xám */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Tuyết rơi */
+.snowflake {
+    position: absolute;
+    top: -10px;
+    z-index: 9999;
+    color: #fff;
+    font-size: 20px;
+    user-select: none;
+    pointer-events: none;
+    animation: fall 10s linear infinite;
+}
+
+/* Tạo hiệu ứng tuyết rơi */
+@keyframes fall {
+    0% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* CSS cho container */
+.container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+
+h1 {
+    font-size: 24px;
+    color: #1e40af;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #4b5563;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    text-transform: uppercase; /* Tự động chuyển chữ thành in hoa */
+}
+
+button {
+    background-color: #1e40af;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2563eb;
+}
+
+/* Loading styles */
+.loading-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    flex-direction: column;
+}
+
+.loading-spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #1e40af;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-message {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Result styling */
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #1e40af;
+    white-space: pre-line;
+    word-wrap: break-word;
+    max-height: 300px; /* Giới hạn chiều cao của phần kết quả */
+    overflow-y: auto;  /* Thêm thanh cuộn dọc khi dữ liệu dài */
+}
+
+/* Default (green) background for result */
+#result.no-data {
+    background-color: #d1fae5;
+    border: 1px solid #34d399;
+}
+
+/* Red background for result (has data) */
+#result.has-data {
+    background-color: #fee2e2;
+    border: 1px solid #f87171;
+}
